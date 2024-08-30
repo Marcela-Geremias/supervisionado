@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previsão de Atrito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Previsão de Atrito</h1>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <label for="age">Idade:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="business_travel">Business Travel:</label>
+        <input type="text" id="business_travel" name="business_travel" required><br>
+
+        <label for="daily_rate">Daily Rate:</label>
+        <input type="number" id="daily_rate" name="daily_rate" required><br>
+
+        <label for="department">Departamento:</label>
+        <input type="text" id="department" name="department" required><br>
+
+        <label for="distance_from_home">Distância de Casa:</label>
+        <input type="number" id="distance_from_home" name="distance_from_home" required><br>
+
+        <label for="education">Educação:</label>
+        <input type="number" id="education" name="education" required><br>
+
+        <label for="education_field">Campo de Educação:</label>
+        <input type="text" id="education_field" name="education_field" required><br>
+
+        <input type="submit" value="Prever">
+    </form>
+</body>
+</html>
