@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Previsão de Atrito</title>
+    <title>Previsão de Rotatividade</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@
             margin-top: 10px;
             color: #555;
         }
-        input[type="text"],
+        select,
         input[type="number"] {
             width: 100%;
             padding: 8px;
@@ -48,28 +48,49 @@
     </style>
 </head>
 <body>
-    <h1>Previsão de Atrito</h1>
-    <form action="{{ url_for('predict') }}" method="POST">
-        <label for="age">Idade:</label>
-        <input type="number" id="age" name="age" required><br>
+    <h1>Previsão de Rotatividade</h1>
+    <form action="/" method="POST">
+        <label for="Age">Idade:</label>
+        <input type="number" id="Age" name="Age" step="any" required><br>
 
-        <label for="business_travel">Business Travel:</label>
-        <input type="text" id="business_travel" name="business_travel" required><br>
+        <label for="BusinessTravel">Viagens a Negócios:</label>
+        <select id="BusinessTravel" name="BusinessTravel" required>
+            <option value="0">Non-Travel</option>
+            <option value="1">Travel_Frequently</option>
+            <option value="2">Travel_Rarely</option>
+        </select><br>
 
-        <label for="daily_rate">Daily Rate:</label>
-        <input type="number" id="daily_rate" name="daily_rate" required><br>
+        <label for="DailyRate">Taxa Diária:</label>
+        <input type="number" id="DailyRate" name="DailyRate" step="any" required><br>
 
-        <label for="department">Departamento:</label>
-        <input type="text" id="department" name="department" required><br>
+        <label for="Department">Departamento:</label>
+        <select id="Department" name="Department" required>
+            <option value="0">Sales</option>
+            <option value="1">Research & Development</option>
+            <option value="2">Human Resources</option>
+        </select><br>
 
-        <label for="distance_from_home">Distância de Casa:</label>
-        <input type="number" id="distance_from_home" name="distance_from_home" required><br>
+        <label for="DistanceFromHome">Distância de Casa:</label>
+        <input type="number" id="DistanceFromHome" name="DistanceFromHome" step="any" required><br>
 
-        <label for="education">Educação:</label>
-        <input type="number" id="education" name="education" required><br>
+        <label for="Education">Educação:</label>
+        <input type="number" id="Education" name="Education" step="any" required><br>
 
-        <label for="education_field">Campo de Educação:</label>
-        <input type="text" id="education_field" name="education_field" required><br>
+        <label for="EducationField">Área de Educação:</label>
+        <select id="EducationField" name="EducationField" required>
+            <option value="0">Other</option>
+            <option value="1">Marketing</option>
+            <option value="2">Life Sciences</option>
+            <option value="3">Technical Degree</option>
+            <option value="4">Human Resources</option>
+            <option value="5">Medical</option>
+        </select><br>
+
+        <label for="EmployeeCount">Contagem de Empregados:</label>
+        <input type="number" id="EmployeeCount" name="EmployeeCount" step="any" required><br>
+
+        <label for="EmployeeNumber">Número do Empregado:</label>
+        <input type="number" id="EmployeeNumber" name="EmployeeNumber" step="any" required><br>
 
         <input type="submit" value="Prever">
     </form>
