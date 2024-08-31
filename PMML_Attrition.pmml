@@ -3,7 +3,7 @@
   <Header copyright="marce">
     <Application name="KNIME" version="5.2.3"/>
   </Header>
-  <DataDictionary numberOfFields="35">
+  <DataDictionary numberOfFields="10">
     <DataField name="Age" optype="continuous" dataType="double">
       <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
     </DataField>
@@ -35,259 +35,69 @@
     <DataField name="EmployeeNumber" optype="continuous" dataType="double">
       <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
     </DataField>
-    <DataField name="EnvironmentSatisfaction" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="Gender" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="HourlyRate" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="JobInvolvement" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="JobLevel" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="JobRole" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="JobSatisfaction" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="MaritalStatus" optype="categorical" dataType="string">
-      <Value value="Single"/>
-      <Value value="Married"/>
-      <Value value="Divorced"/>
-    </DataField>
-    <DataField name="MonthlyIncome" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="MonthlyRate" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="NumCompaniesWorked" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="Over18" optype="categorical" dataType="string">
-      <Value value="Y"/>
-    </DataField>
-    <DataField name="OverTime" optype="categorical" dataType="string">
-      <Value value="Yes"/>
-      <Value value="No"/>
-    </DataField>
-    <DataField name="PercentSalaryHike" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="PerformanceRating" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="RelationshipSatisfaction" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="StandardHours" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="StockOptionLevel" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="TotalWorkingYears" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="TrainingTimesLastYear" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="WorkLifeBalance" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="YearsAtCompany" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="YearsInCurrentRole" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="YearsSinceLastPromotion" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
-    <DataField name="YearsWithCurrManager" optype="continuous" dataType="double">
-      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
-    </DataField>
   </DataDictionary>
   <TransformationDictionary>
+    <DerivedField displayName="Age" name="Age*" optype="continuous" dataType="double">
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
+      <NormContinuous field="Age">
+        <LinearNorm orig="0.0" norm="-2.0714872299761633"/>
+        <LinearNorm orig="1.0" norm="2.5260259477766707"/>
+      </NormContinuous>
+    </DerivedField>
+    <DerivedField displayName="BusinessTravel" name="BusinessTravel*" optype="continuous" dataType="double">
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
+      <NormContinuous field="BusinessTravel">
+        <LinearNorm orig="0.0" norm="-2.4156150692204643"/>
+        <LinearNorm orig="1.0" norm="0.589847606830392"/>
+      </NormContinuous>
+    </DerivedField>
     <DerivedField displayName="DailyRate" name="DailyRate*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
       <NormContinuous field="DailyRate">
         <LinearNorm orig="0.0" norm="-1.7359849242154624"/>
         <LinearNorm orig="1.0" norm="1.7261426961913966"/>
       </NormContinuous>
     </DerivedField>
+    <DerivedField displayName="Department" name="Department*" optype="continuous" dataType="double">
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
+      <NormContinuous field="Department">
+        <LinearNorm orig="0.0" norm="-1.4010355584854202"/>
+        <LinearNorm orig="1.0" norm="2.3883338453297904"/>
+      </NormContinuous>
+    </DerivedField>
     <DerivedField displayName="DistanceFromHome" name="DistanceFromHome*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
       <NormContinuous field="DistanceFromHome">
         <LinearNorm orig="0.0" norm="-1.010565437699911"/>
         <LinearNorm orig="1.0" norm="2.443297670805304"/>
       </NormContinuous>
     </DerivedField>
     <DerivedField displayName="Education" name="Education*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
       <NormContinuous field="Education">
         <LinearNorm orig="0.0" norm="-1.8677901251727733"/>
         <LinearNorm orig="1.0" norm="2.0378307624573524"/>
       </NormContinuous>
     </DerivedField>
+    <DerivedField displayName="EducationField" name="EducationField*" optype="continuous" dataType="double">
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
+      <NormContinuous field="EducationField">
+        <LinearNorm orig="0.0" norm="-1.767006019887672"/>
+        <LinearNorm orig="1.0" norm="1.3289401651360209"/>
+      </NormContinuous>
+    </DerivedField>
     <DerivedField displayName="EmployeeCount" name="EmployeeCount*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
       <NormContinuous field="EmployeeCount">
         <LinearNorm orig="0.0" norm="-0.0"/>
         <LinearNorm orig="1.0" norm="1.0"/>
       </NormContinuous>
     </DerivedField>
     <DerivedField displayName="EmployeeNumber" name="EmployeeNumber*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
+      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 9 column(s)"/>
       <NormContinuous field="EmployeeNumber">
         <LinearNorm orig="0.0" norm="-1.7007041856237415"/>
         <LinearNorm orig="1.0" norm="1.73271184152686"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="EnvironmentSatisfaction" name="EnvironmentSatisfaction*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="EnvironmentSatisfaction">
-        <LinearNorm orig="0.0" norm="-1.5751502352070814"/>
-        <LinearNorm orig="1.0" norm="1.1693825728779477"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="HourlyRate" name="HourlyRate*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="HourlyRate">
-        <LinearNorm orig="0.0" norm="-1.7654779652125925"/>
-        <LinearNorm orig="1.0" norm="1.6778063907460055"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="JobInvolvement" name="JobInvolvement*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="JobInvolvement">
-        <LinearNorm orig="0.0" norm="-2.431178247852291"/>
-        <LinearNorm orig="1.0" norm="1.7849035740228874"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="JobLevel" name="JobLevel*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="JobLevel">
-        <LinearNorm orig="0.0" norm="-0.9611592998452883"/>
-        <LinearNorm orig="1.0" norm="2.65240635430451"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="JobSatisfaction" name="JobSatisfaction*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="JobSatisfaction">
-        <LinearNorm orig="0.0" norm="-1.567373174222657"/>
-        <LinearNorm orig="1.0" norm="1.1528612603786494"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="MonthlyIncome" name="MonthlyIncome*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="MonthlyIncome">
-        <LinearNorm orig="0.0" norm="-1.1669459907195303"/>
-        <LinearNorm orig="1.0" norm="2.8666509335716803"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="MonthlyRate" name="MonthlyRate*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="MonthlyRate">
-        <LinearNorm orig="0.0" norm="-1.716700013982267"/>
-        <LinearNorm orig="1.0" norm="1.7822812487074173"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="NumCompaniesWorked" name="NumCompaniesWorked*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="NumCompaniesWorked">
-        <LinearNorm orig="0.0" norm="-1.0781375376815965"/>
-        <LinearNorm orig="1.0" norm="2.5247317786931207"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="PercentSalaryHike" name="PercentSalaryHike*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="PercentSalaryHike">
-        <LinearNorm orig="0.0" norm="-1.1501626900645157"/>
-        <LinearNorm orig="1.0" norm="2.6750390167111346"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="PerformanceRating" name="PerformanceRating*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="PerformanceRating">
-        <LinearNorm orig="0.0" norm="-0.4260850141831043"/>
-        <LinearNorm orig="1.0" norm="2.3453529099282386"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="RelationshipSatisfaction" name="RelationshipSatisfaction*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="RelationshipSatisfaction">
-        <LinearNorm orig="0.0" norm="-1.5836393128402615"/>
-        <LinearNorm orig="1.0" norm="1.1910326655568575"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="StandardHours" name="StandardHours*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="StandardHours">
-        <LinearNorm orig="0.0" norm="-0.0"/>
-        <LinearNorm orig="1.0" norm="1.0"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="StockOptionLevel" name="StockOptionLevel*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="StockOptionLevel">
-        <LinearNorm orig="0.0" norm="-0.9316973236084978"/>
-        <LinearNorm orig="1.0" norm="2.589112613935179"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="TotalWorkingYears" name="TotalWorkingYears*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="TotalWorkingYears">
-        <LinearNorm orig="0.0" norm="-1.449673349945025"/>
-        <LinearNorm orig="1.0" norm="3.69119830898794"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="TrainingTimesLastYear" name="TrainingTimesLastYear*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="TrainingTimesLastYear">
-        <LinearNorm orig="0.0" norm="-2.171242935919214"/>
-        <LinearNorm orig="1.0" norm="2.48255115759414"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="WorkLifeBalance" name="WorkLifeBalance*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="WorkLifeBalance">
-        <LinearNorm orig="0.0" norm="-2.492972039126287"/>
-        <LinearNorm orig="1.0" norm="1.7534577378327336"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="YearsAtCompany" name="YearsAtCompany*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="YearsAtCompany">
-        <LinearNorm orig="0.0" norm="-1.1439050833826505"/>
-        <LinearNorm orig="1.0" norm="5.385081414666258"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="YearsInCurrentRole" name="YearsInCurrentRole*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="YearsInCurrentRole">
-        <LinearNorm orig="0.0" norm="-1.1672900197286467"/>
-        <LinearNorm orig="1.0" norm="3.8007804197148163"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="YearsSinceLastPromotion" name="YearsSinceLastPromotion*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="YearsSinceLastPromotion">
-        <LinearNorm orig="0.0" norm="-0.6789146428409522"/>
-        <LinearNorm orig="1.0" norm="3.9759572087271358"/>
-      </NormContinuous>
-    </DerivedField>
-    <DerivedField displayName="YearsWithCurrManager" name="YearsWithCurrManager*" optype="continuous" dataType="double">
-      <Extension name="summary" extender="KNIME" value="Z-Score (Gaussian) normalization on 25 column(s)"/>
-      <NormContinuous field="YearsWithCurrManager">
-        <LinearNorm orig="0.0" norm="-1.1555414682655596"/>
-        <LinearNorm orig="1.0" norm="3.608850759412444"/>
       </NormContinuous>
     </DerivedField>
   </TransformationDictionary>
